@@ -1,0 +1,66 @@
+---
+title: Study Guide for Quiz 3
+date: last-modified
+author:
+    - name: Skippy McBoatface
+      email: skippy@mcboatface.com
+format:
+    html:
+        embed-resources: true
+        html-math-method: katex
+        theme: spacelab
+---
+
+## DELETE THIS SECTION (and subsections) - <br/>KEEP THE REFLECTION SECTION
+
+Besides providing you an opportunity to create a study guide for the quiz, this homework assignment
+introduces and reinforces the use of greek letters and \LaTeX formulas within quarto documents.
+
+READ IN DETAIL [EXAMPLE 1](../examples/example-1.html) AND CAREFULLY REVIEW THE [EXAMPLE 1 QMD FILE](../examples/example-1.qmd).
+
+### Approach
+
+* I recommend that you first take [Practice Quiz 3](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707) to get
+a feel for how I'm testing your knowledge of relational algebra. 
+
+* As you take the practice quiz, I suggest that you take keep notes of what you'd like to have to help you answer a similar question
+in the future.
+
+* Convert these notes into a qmd study guide.  Render the qmd to create an HTML file.
+
+* Take the practice quiz again, this time with your study guide.  Did it help?  If not, why?
+
+* Rinse and repeat.
+
+* When you're ready, print a copy of the HTML study guide, then take the real quiz.  You make use a copy of the printed study guide when you take the real quiz 3.
+
+### Getting started with the study guide
+
+If you are struggling to determine what your study guide should look like, I offer a bunch of examples in the *../examples* folder.
+
+A sample scaffold for a study guide table can be found in the [QMD](../examples/example-1.qmd) that created [Example 1](../examples/example-1.html).
+
+### Examples
+
+To provide you with a boatload of examples, I assembled the files in the *../examples* folder.
+
+* [Example 1](../examples/example-1.html) - contains references, sample symbols, and a scaffold for a study guide that you might find useful.
+
+* [Example 2](../examples/example-2.html) - this is an example document using $\LaTeX$ formulas in a quarto QMD file.
+
+* [Example 3](../examples/example-3.html) - this document contains a proof for the Pythagorean Theorem.
+
+* [Example 4](../examples/example-4.html) - this document contains a proof for the commutativity of the selection and join operators.
+
+## Reflection
+
+Please keep the reflection section at the bottom of your study guide and answer these questions:
+
+1. Would you /how would you approach this assignment differently in the future?
+
+1. What was the most surprising (good or bad) thing that you learned by doing this assignment?
+
+1. How much time did you spend on this assignment?
+
+1. What CS classes have you had (or have now) that the quarto math expressions and diagrams (e.g., graphviz and mermaid) would have made it easier?
+
