@@ -1,9 +1,9 @@
 ---
-title: Study Guide for Quiz 3
+title: Relational Algebra Study Guide
 date: last-modified
 author:
-    - name: Skippy McBoatface
-      email: skippy@mcboatface.com
+    - name: Dhilan Kamani
+      email: kamanids@vcu.edu
 format:
     html:
         embed-resources: true
@@ -11,46 +11,119 @@ format:
         theme: spacelab
 ---
 
-## DELETE THIS SECTION (and subsections) - <br/>KEEP THE REFLECTION SECTION
+## Relational Algebra Study Guide
 
-Besides providing you an opportunity to create a study guide for the quiz, this homework assignment
-introduces and reinforces the use of greek letters and \LaTeX formulas within quarto documents.
+### General Overview of the Relational Model
 
-READ IN DETAIL [EXAMPLE 1](../examples/example-1.html) AND CAREFULLY REVIEW THE [EXAMPLE 1 QMD FILE](../examples/example-1.qmd).
+* Tables are the representation of entities from entity-relation diagrams, a database complete with entities, attributes, and relations is called a schema
+  * Column/fields are the "attributes" of the table and can have various data types
+    * e.g.: A table of students enrolled in a course would have fields: StudentName, VNumber, Attendance, Grade, etc
+    * Each field has a domain, the set of allowed values for an attribute
+      * The database designer must specify if NULL is a valid value
 
-### Approach
+  * Rows/records are individual instances of data
+    * e.g.: Following the same example as above, each student would be its own row, which data for each field
 
-* I recommend that you first take [Practice Quiz 3](https://virginiacommonwealth.instructure.com/courses/105097/quizzes/199707) to get
-a feel for how I'm testing your knowledge of relational algebra. 
+  * Relationships between entities/tables are denoted by keys.
+    * Keys are fields designated as keys, which have special properties and are tracked differently than attributes/entities by the database
 
-* As you take the practice quiz, I suggest that you take keep notes of what you'd like to have to help you answer a similar question
-in the future.
 
-* Convert these notes into a qmd study guide.  Render the qmd to create an HTML file.
+### Relational Algebra: Commonly Used Symbols
 
-* Take the practice quiz again, this time with your study guide.  Did it help?  If not, why?
+<table align="center">
+<tr><td padding="3px">
+| Symbol | Meaning |
+|:---:|:----------------:|
+| $\sigma$ | Selection |
+| $\pi$ | Projection |
+| &rho; | Rename |
+| $\cup$ | Union |
+| $\cap$ | Intersection |
+| &minus; | Difference | 
+| $\div$ | Division |
+| $\Join$ | Join |
+| ⟕ | Left Outer Join |
+| ⟖ | Right Outer Join |
+| ⟗ | Full Outer Join |
+| $\land$ | Logical And |
+| $\lor$ | Logical Or |
+| $\times$ | Cross Product |
+</td></tr></table>
 
-* Rinse and repeat.
+### Relational Algebra: Symbol Breakdown
 
-* When you're ready, print a copy of the HTML study guide, then take the real quiz.  You make use a copy of the printed study guide when you take the real quiz 3.
+* $\sigma$ (selection) properties:
+  * Idempotent: can be applied multiple times without side effects
+  * Commutative: the order of application is irrelevant
+  * Distributed: operations can be subdivided and combined
 
-### Getting started with the study guide
+* $\pi$ (projection):
+  * reduces relation to specific columns, helpful when looking at specific attributes
+  * can be used to eliminate redundancies
+  * the operator can be combined with other operators to make complex queries
+  * Properties:
+    * Idempotent
+    * Commutative
+    * __Non-distributive__
+      * You can select, then project
+      * You cannot project over selection if the selection involves non-projected attributes (You cannot project for A over a selection that only includes B and C)
 
-If you are struggling to determine what your study guide should look like, I offer a bunch of examples in the *../examples* folder.
+* $\cup$ (union) properties:
+  * Idempotent
+  * Commutative
+  * Associative
+  * Union with an empty set (like multiplying by 1)
+  * Union distributes over intersection
 
-A sample scaffold for a study guide table can be found in the [QMD](../examples/example-1.qmd) that created [Example 1](../examples/example-1.html).
+* $\cap$ (intersection) properties:
+  * Idempotent
+  * Commutative
+  * Associative
+  * Intersection with an empty set (like multiplying by 1)
+  * Intersection distributes over union
 
-### Examples
+* &minus; (difference) properties:
+  * __Non-commutative__
+  * __Non-associative__
+  * Difference with an empty set (subtracting 0 from a number)
+  * Difference with itself 
+  * Distributive over intersection
 
-To provide you with a boatload of examples, I assembled the files in the *../examples* folder.
+* $\Join$ (join):
+  * combines rows from separate relations based on a join condition that must be true for both relations
+  * Properties:
+    * __Non-commutative__
+    * Associative
+    * Inner join with an empty set
+    * Distributive over selection
+    * Size of result: changes depending on how many rows match between relations
 
-* [Example 1](../examples/example-1.html) - contains references, sample symbols, and a scaffold for a study guide that you might find useful.
+* ⟕/⟖/⟗ (left/right outer join):
+  * Left keeps rows from R~1~ and matches rows from R~2~
+  * Right keeps rows from R~2~ and matches rows from R~1~
+  * Properties:
+    * __Non-commutative__
+    * Associative
+    * Outer join with an empty set
+      * Left: Returns all rows from R~1~ with NULL for R~2~
+      * Right: Returns all rows from R~2~ with NULL for R~1~
+    * Distributive over selection
+    * Size of result: changes depending on how many rows match between relations
 
-* [Example 2](../examples/example-2.html) - this is an example document using $\LaTeX$ formulas in a quarto QMD file.
+* ⟗ (full outer join):
+  * Full keeps all rows from both relations, including unmatched ones
+  * Properties:
+    * Commutative
+    * Associative
+    * Full outer join with an empty set returns both relations padded with NULL
+    * Distributive over union
+    * Size of result: changes depending on how many rows match between relations
 
-* [Example 3](../examples/example-3.html) - this document contains a proof for the Pythagorean Theorem.
+### Example Proof
 
-* [Example 4](../examples/example-4.html) - this document contains a proof for the commutativity of the selection and join operators.
+From our savior, Dr. Leonard:
+
+* [Commutativity of Selection and Join](../examples/example-4.html) - this document contains a proof for the commutativity of the selection and join operators.
 
 ## Reflection
 
@@ -58,9 +131,20 @@ Please keep the reflection section at the bottom of your study guide and answer 
 
 1. Would you /how would you approach this assignment differently in the future?
 
-1. What was the most surprising (good or bad) thing that you learned by doing this assignment?
+I would take the material of this project and simply write a study guide in a word document or something. I understand and appreciate what you're having us do by creating the study guide in markdown, but I would have rather had a different task than making a study guide for material I don't find all that difficult.
 
-1. How much time did you spend on this assignment?
+2. What was the most surprising (good or bad) thing that you learned by doing this assignment?
 
-1. What CS classes have you had (or have now) that the quarto math expressions and diagrams (e.g., graphviz and mermaid) would have made it easier?
+I did not realize how much battery power VS Code used, especially when left running in the background.
+
+3. How much time did you spend on this assignment?
+
+Somewhere between 3 and 5 hours I think, I've done it in many small pieces over the course of the past week so I couldn't say for sure.
+
+4. What CS classes have you had (or have now) that the quarto math expressions and diagrams (e.g., graphviz and mermaid) would have made it easier?
+
+255/256, 355, 401, multiple bioinformatics courses that cover some CS content but with the use of Python rather than Java/C++/HTML.
+
+Oops, didn't finish reading the question, 401 would have been easier for sure, not sure how much though, that class was the bane of my existence.
+
 
