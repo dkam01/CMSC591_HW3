@@ -125,7 +125,7 @@ format:
 
 From our savior, Dr. Leonard:
 
-* [Commutativity of Selection and Join](../examples/example-4.html) - this document contains a proof for the commutativity of the selection and join operators.
+* [Commutativity of Selection and Join](../examples/example-4.html)
 
 ## Reflection
 
